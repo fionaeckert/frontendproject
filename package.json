@@ -1,0 +1,22 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "front end project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fionaeckert/frontendproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fionaeckert/frontendproject/issues"
+  },
+  "homepage": "https://github.com/fionaeckert/frontendproject#readme",
+  "dependencies": {
+    "howler": "^2.2.3"
+  }
+}
