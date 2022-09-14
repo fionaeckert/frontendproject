@@ -9,12 +9,13 @@
     <title>Project 1</title>
 </head>
 <div class="titleBox">Welcome to Doggy DJ!</div>
-<body>
+<body onload="">
     <div class="gifBox">
-        <div class="gif">Gif</div>
+        <img src="" alt="" id="randomDogGif">
+        <!-- <div class="gif"><img src="" alt="Today's Doggy DJ!" id="randomDogGif"></div> -->
     </div>
     <div class="card">
-      <div class="card-header">
+      <div class="card-header" id="nowPlaying">
         Now Playing:
       </div>
       <div class="card-body">
@@ -23,7 +24,7 @@
         <a href="#" class="btn btn-primary" id="previousButton"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-skip-backward-btn-fill" viewBox="0 0 16 16">
             <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.21-6.907L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407z"/>
           </svg></a>
-        <a href="#" class="btn btn-primary" id="playButton"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-play-fill" viewBox="0 0 16 16">
+        <a href="#" class="btn btn-primary" id="playButton" onclick="getSongs()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-play-fill" viewBox="0 0 16 16">
             <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 5.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43V5.884z"/>
           </svg></a>
         <a href="#" class="btn btn-primary" id="pauseButton"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pause-btn-fill" viewBox="0 0 16 16">
