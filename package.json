@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fionaeckert/frontendproject#readme",
   "dependencies": {
+    "bootstrap-icons": "^1.9.1",
     "howler": "^2.2.3"
   }
 }
