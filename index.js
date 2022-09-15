@@ -1,8 +1,17 @@
 
 let playlist = []
+let gifs = ['https://media.giphy.com/media/rdAeOA3mfXomQ/giphy.gif',
+'https://media.giphy.com/media/vhkPj5VZYuKKQ/giphy.gif',
+'https://media.giphy.com/media/LWzdNsCaw2t2wdj0wp/giphy.gif',
+'https://media.giphy.com/media/XY2K8EQ83uN3sLzeYT/giphy.gif',
+'https://media.giphy.com/media/DirPxXrUHKaCA/giphy.gif',
+'https://media.giphy.com/media/4Zo41lhzKt6iZ8xff9/giphy.gif',
+'https://media.giphy.com/media/3lxD1O74siiz5FvrJs/giphy.gif',
+'https://media.giphy.com/media/xUOxfbuK9qc61NGiaI/giphy.gif',
+'https://media.giphy.com/media/1kkxWqT5nvLXupUTwK/giphy.gif',
+'https://media.giphy.com/media/l2uluGTvB7DAQvZyHp/giphy.gif']
 
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
     fetch('http://127.0.0.1:8080/api.deezer.com/search?q=dog')
     .then(response => {
@@ -25,7 +34,7 @@ const getSongs = () => {        // Creates an array of songs from the deezer api
 
         getGif()
 
-        //shuffle ()
+        shuffle()
 
         for(let i = 0; i < playlist.length; i++){
             playSong(playlist[i])
@@ -44,17 +53,12 @@ const playSong = (song) => {
     //   sound.play();
 }
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-const getGif = () =>{
-    fetch('http://api.giphy.com/v1/gifs/random?api_key=M9xXufYZ27Bjma9Wumq9mijU45ruYRNP&tag=dog')
-    .then(response => {
-        return response.json()
-    })
-    .then(dogGif => {
-        randomGif = dogGif.data.embed_url;
-        document.getElementById('randomDogGif').src = randomGif;
-        console.log(randomGif)
-        console.log(document.getElementById('randomDogGif'.src))
-    })
-    }
+//-----------------------------------------------------------------------------------------------------------------------------------------------    
+function gifShuffle(){
+    let gifLength = gifs.length;
+    let gifShuffleIndex;
+    gifShuffleIndex = Math.floor(Math.random()*gifLength);
+    let randomGif = document.getElementById('randomDogGif');
+    randomGif.src = gifs[gifShuffleIndex]
+}
 //-----------------------------------------------------------------------------------------------------------------------------------------------
