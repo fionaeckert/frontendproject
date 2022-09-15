@@ -1,6 +1,3 @@
-
-<<<<<<< HEAD
-let playlist = []
 let gifs = ['https://media.giphy.com/media/rdAeOA3mfXomQ/giphy.gif',
 'https://media.giphy.com/media/vhkPj5VZYuKKQ/giphy.gif',
 'https://media.giphy.com/media/LWzdNsCaw2t2wdj0wp/giphy.gif',
@@ -12,17 +9,15 @@ let gifs = ['https://media.giphy.com/media/rdAeOA3mfXomQ/giphy.gif',
 'https://media.giphy.com/media/1kkxWqT5nvLXupUTwK/giphy.gif',
 'https://media.giphy.com/media/l2uluGTvB7DAQvZyHp/giphy.gif']
 
-// -----------------------------------------------------------------------------------------------------------------------------------------------
-=======
 playlist = []
 songInfo = []
 curIndex = 0
 preIndex = curIndex - 1 
 nexIndex = curIndex + 1
+totalLength = 10
 
 // test mp3 file 'http://cdn-preview-2.deezer.com/stream/c-24072e38c6cd825c7652d4b240d2b8cb-7.mp3'
 //-----------------------------------------------------------------------------------------------------------------------------------------------
->>>>>>> main
 const getSongs = () => {        // Creates an array of songs from the deezer api
     //console.log('1')
     fetch('http://127.0.0.1:8080/api.deezer.com/search?q=dog')
@@ -32,7 +27,7 @@ const getSongs = () => {        // Creates an array of songs from the deezer api
     })
     .then(songs => {
         //console.log('3')
-        for(let i = 0; i < 10; i++) {
+        for(let i = 0; i < totalLength; i++) {
             let song = {
                 title: songs.data[i].title,
                 preview: songs.data[i].preview,
@@ -41,25 +36,13 @@ const getSongs = () => {        // Creates an array of songs from the deezer api
                 artist: songs.data[i].artist.name,
                 album: songs.data[i].album.title
             }
-<<<<<<< HEAD
 
-            playlist.push(song)
-        }
-
-        getGif()
-
-        shuffle()
-
-        for(let i = 0; i < playlist.length; i++){
-            playSong(playlist[i])
-=======
             songInfo.push(song)
             playlist.push(songs.data[i].preview)
->>>>>>> main
         }
+        //console.log(playlist)
+        // getGif()
         shuffle(playlist)
-        shuffle(songInfo)
-        //console.log('nest to start')
         startPlaylist(curIndex)
     })
 }
@@ -72,6 +55,7 @@ function startPlaylist(index) {
 })
     sound.play()
     displaySong(songInfo[index])
+    displayGif()
 }
 //-----------------------------------------------------
 function playSong() {   
@@ -94,6 +78,7 @@ function nextSong() {
     nexIndex = curIndex + 1
     preIndex = curIndex - 1
     }
+    console.log(preIndex,curIndex,nexIndex)
 }
 //-----------------------------------------------------
 function prevSong() {  
@@ -105,6 +90,7 @@ function prevSong() {
     nexIndex = curIndex + 1
     preIndex = curIndex - 1
     }
+    console.log(preIndex,curIndex,nexIndex)
 }
 
 //-----------------------------------------------------
@@ -122,17 +108,6 @@ function songDone() { // checks to see if the song is done to play next song,  m
 function shuffle(myList) {
   let i = myList.length
   let ri;
-
-<<<<<<< HEAD
-//-----------------------------------------------------------------------------------------------------------------------------------------------    
-function gifShuffle(){
-    let gifLength = gifs.length;
-    let gifShuffleIndex;
-    gifShuffleIndex = Math.floor(Math.random()*gifLength);
-    let randomGif = document.getElementById('randomDogGif');
-    randomGif.src = gifs[gifShuffleIndex]
-}
-=======
   while (i != 0) {
     ri = Math.floor(Math.random()*i);
     i--;
@@ -141,18 +116,35 @@ function gifShuffle(){
     [songInfo[i], songInfo[ri]] =  [songInfo[ri], songInfo[i]];
   }
 }
-//-----------------------------------------------------------------------------------------------------------------------------------------------
-const getGif = () =>{
-    fetch('http://api.giphy.com/v1/gifs/random?api_key=<>&tag=dog')
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------    
+function gifShuffle(myList) {
+  let i = myList.length
+  let ri;
+  while (i != 0) {
+    ri = Math.floor(Math.random()*i);
+    i--;
+
+    [gifs[i], gifs[ri]] =  [gifs[ri], gifs[i]];
+  }
+}
+  
+//-----------------------------------------------------
+const getGif = () => {
+    fetch('http://api.giphy.com/v1/gifs/random?api_key=H2vfGVbOk13pYN8yuRDLCdtRJwCsIEGc&tag=dog')
     .then(response => {
         return response.json()
     })
     .then(dogGif => {
-        randomGif = dogGif.data.embed_url;
-        document.getElementById('randomDogGif').src = randomGif;
-        console.log(randomGif)
-        console.log(document.getElementById('randomDogGif'.src))
+        for (let i = 0; i < totalLength; i++) {
+            randomGif = dogGif.data[i].embed_url
+            gifs.push(randomGif)
+        }
+        gifShuffle(gifs)
     })
-    }
->>>>>>> main
-//-----------------------------------------------------------------------------------------------------------------------------------------------
+}
+//-----------------------------------------------------
+function displayGif() {
+    //console.log('in display gif')
+    document.getElementById('gifSpot').src = gifs[curIndex]
+}
