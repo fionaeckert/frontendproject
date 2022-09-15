@@ -1,0 +1,106 @@
+body {
+  margin: 0%;
+}
+
+/* @font-face {
+    font-family: lazyDog;
+    src: url(http://fonts.cdnfonts.com/css/lazy-dog?styles=125854);
+} */
+
+.titleBox {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  font-size: xxx-large;
+  background-color: #94b49f;
+  color: #cee5d0;
+  font-family: lazyDog;
+}
+
+.gifBox {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 65px;
+}
+
+.gif {
+}
+
+.card {
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #cee5d0;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+}
+
+.card-title {
+}
+
+#songTitle {
+}
+
+.card-text {
+}
+
+#songArtist {
+}
+
+.btn {
+  background-color: #94b49f;
+}
+
+#previousButton {
+}
+
+#playButton {
+}
+
+#pauseButton {
+  /* background-color: #94b49f; */
+}
+
+#skipButton {
+}
+
+#albumCover {
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #ecb390;
+}
+
+.footer-contents {
+  font-size: xxx-large;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+}
+
+/* .left-side {
+  width: 20%;
+  padding: 25%;
+}
+
+.right-side {
+  width: 20%;
+  padding: 25%;
+  border-color: black;
+} */
+
+.structure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  background-color: #fcf8e8;
+  padding-bottom: 10%;
+}
