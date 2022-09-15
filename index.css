@@ -1,11 +1,13 @@
 body {
   margin: 0%;
+  /* height: 100%; */
+  min-height: 100%;
 }
 
-/* @font-face {
-    font-family: lazyDog;
-    src: url(http://fonts.cdnfonts.com/css/lazy-dog?styles=125854);
-} */
+html {
+  min-height: 100%;
+  overflow-y: scroll;
+}
 
 .titleBox {
   display: flex;
@@ -14,7 +16,7 @@ body {
   font-size: xxx-large;
   background-color: #94b49f;
   color: #cee5d0;
-  font-family: lazyDog;
+  font-family: "Lazy Dog", sans-serif;
 }
 
 .gifBox {
@@ -33,6 +35,7 @@ body {
   display: flex;
   justify-content: flex-start;
   background-color: #cee5d0;
+  font-family: "Lazy Dog";
 }
 
 .card-body {
@@ -83,6 +86,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 3%;
+  font-family: "Lazy Dog";
 }
 
 /* .left-side {
