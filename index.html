@@ -20,7 +20,7 @@
 
     <div class="gifBox">
       <div class="gif">
-              <iframe src="" frameborder="0" id="gifSpot" style="pointer-events: none;"></iframe>
+        <iframe src="" frameborder="0" id="gifSpot" style="pointer-events: none;"></iframe>
       </div>
     </div>
 
@@ -77,13 +77,14 @@
 
   </div>
 
+
+  <script src="./index.js"></script>
+  <script src="./node_modules/howler/src/howler.core.js"></script>
+  <script>
+    var sound = new Howl({
+      src: ['sound.webm', 'sound.mp3']
+    });
+  </script>
 </body>
-<script src="./index.js"></script>
-<script src="./node_modules/howler/src/howler.core.js"></script>
-<script>
-  var sound = new Howl({
-    src: ['sound.webm', 'sound.mp3']
-  });
-</script>
 
 </html>
