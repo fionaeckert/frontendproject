@@ -14,6 +14,11 @@ body {
   src: url(./EatTheMeat-4BZYD.otf);
 }
 
+@font-face {
+  font-family: LemonMilkItalic;
+  src: url(./LemonMilkLightItalic-7BjPE.otf);
+}
+
 .titleBox {
   display: flex;
   justify-content: center;
@@ -24,14 +29,24 @@ body {
   font-family: "LemonMilk";
 }
 
+#dogFact{
+  display: flex;
+  justify-content: center;
+  width:40%;
+  border: solid #ecb390;
+  font-family: "LemonMilkItalic";
+  margin-bottom: 10px;
+}
+
 .gifBox {
   display: flex;
   justify-content: center;
-  /* padding-bottom: 10px; */
+  margin-bottom: 10px;
 }
 
 .card {
-  width:30%;
+  width:60%;
+  opacity:95%;
 }
 
 .card-header {
@@ -45,6 +60,7 @@ body {
 .card-body {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -78,7 +94,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 150px;
+  padding-top:1%;
   padding-bottom: 10%;
 }
 
