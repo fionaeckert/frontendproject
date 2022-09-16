@@ -15,6 +15,7 @@
 <div class="titleBox">Welcome to Doggy DJ!</div>
 
 <body onload="getSongs()">
+<<<<<<< HEAD
     
   <div class="structure">
 
@@ -70,16 +71,78 @@
       <div class="footer">
           <footer class="footer-contents">footer</footer>
       </div>
+=======
+
+  <div class="structure">
+
+    <div class="gifBox">
+      <div class="gif">
+        <iframe src="" frameborder="0" id="gifSpot" style="pointer-events: none;"></iframe>
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="card-header" id="nowPlaying">
+        Now Playing:
+      </div>
+
+      <div class="card-body">
+
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+
+        <div class="player">
+                <img class="vinylImage" src="./vinyl.png" alt="">
+          <a href="#" class="btn btn-primary" id="previousButton" onclick="prevSong()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-skip-backward-btn-fill" viewBox="0 0 16 16">
+                          <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.21-6.907L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407z" />
+            </svg>
+          </a>
+
+          <a href="#" class="btn btn-primary" id="playButton" onclick="playSong()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-play-fill" viewBox="0 0 16 16">
+                          <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 5.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43V5.884z" />
+            </svg>
+          </a>
+
+          <a href="#" class="btn btn-primary" id="pauseButton" onclick="pauseSong()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pause-btn-fill" viewBox="0 0 16 16">
+                          <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.25-7C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z" />
+            </svg>
+          </a>
+
+          <a href="#" class="btn btn-primary" id="skipButton" onclick="nextSong()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-fast-forward-btn-fill" viewBox="0 0 16 16">
+                          <path d="M0 4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2Zm4.271 1.055a.5.5 0 0 1 .52.038L8 7.386V5.5a.5.5 0 0 1 .79-.407l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 8 10.5V8.614l-3.21 2.293A.5.5 0 0 1 4 10.5v-5a.5.5 0 0 1 .271-.445Z" />
+            </svg>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+          <footer class="footer-contents">Created by:
+            <a href="http://linkedin.com/in/jordanboardman/">Jordan,</a>
+            <a href="http://www.linkedin.com/in/jonathan-batalla-2b2052249/">Jonathan</a>, and
+            <a href="http://https://www.linkedin.com/in/fiona-eckert/">Fiona</a>
+          </footer>
+    </div>
+>>>>>>> main
 
   </div>
 
+
+  <script src="./index.js"></script>
+  <script src="./node_modules/howler/src/howler.core.js"></script>
+  <script>
+    var sound = new Howl({
+      src: ['sound.webm', 'sound.mp3']
+    });
+  </script>
 </body>
-<script src="./index.js"></script>
-<script src="./node_modules/howler/src/howler.core.js"></script>
-<script>
-  var sound = new Howl({
-    src: ['sound.webm', 'sound.mp3']
-  });
-</script>
 
 </html>
