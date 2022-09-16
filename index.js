@@ -1,16 +1,16 @@
 gifsList = ['https://giphy.com/embed/rdAeOA3mfXomQ','https://giphy.com/embed/vhkPj5VZYuKKQ','https://giphy.com/embed/LWzdNsCaw2t2wdj0wp',
 'https://giphy.com/embed/XY2K8EQ83uN3sLzeYT','https://giphy.com/embed/DirPxXrUHKaCA','https://giphy.com/embed/4Zo41lhzKt6iZ8xff9','https://giphy.com/embed/3lxD1O74siiz5FvrJs'
-,'https://giphy.com/embed/xUOxfbuK9qc61NGiaI','https://giphy.com/embed/1kkxWqT5nvLXupUTwK','https://giphy.com/embed/l2uluGTvB7DAQvZyHp']
-// gifs = []
+,'https://giphy.com/embed/xUOxfbuK9qc61NGiaI','https://giphy.com/embed/1kkxWqT5nvLXupUTwK','https://giphy.com/embed/l2uluGTvB7DAQvZyHp','https://giphy.com/embed/VpysUTI25mTlK','https://giphy.com/embed/sy843WuhjhB5K',
+'https://giphy.com/embed/ZZAyXQIewUut2','https://giphy.com/embed/k2Da0Uzaxo9xe','https://giphy.com/embed/QV9UsDlB2tpaQpCUGn','https://giphy.com/embed/AqbzK6uE645ibue8ZJ','https://giphy.com/embed/iOdDgwtioHQaNdAQvC','https://giphy.com/embed/ZZAyXQIewUut2',
+'https://giphy.com/embed/TkBoNth0Ps3Vm','https://giphy.com/embed/oewr5qXiye6fm','https://giphy.com/embed/11lU2bLTOl26vC']
 dogFacts = []
+dogFact = ''
 playlist = []
 songInfo = []
 curIndex = 0
 preIndex = curIndex - 1 
 nexIndex = curIndex + 1
-totalLength = 10
-// test mp3 file 'http://cdn-preview-2.deezer.com/stream/c-24072e38c6cd825c7652d4b240d2b8cb-7.mp3'
-// console.log(gifs)
+totalLength = 20
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
     fetch('http://127.0.0.1:8080/api.deezer.com/search?q=dog')
@@ -32,55 +32,55 @@ const getSongs = () => {        // Creates an array of songs from the deezer api
             }
             songInfo.push(song)
             playlist.push(songData[i].preview)
-            //getGif()
             }
         }
-        // console.log(gifs)
         shuffle()
-        getFacts()
         startPlaylist(curIndex)
 
     })
 }
 //-----------------------------------------------------
-function startPlaylist(index) { 
-    // console.log('in startPlaylist   ')
+function startPlaylist(index) { // sets up the JS library (Howler) and calls the functions defined below so that the facts, songs, and gifs display properly
     sound = new Howl({
     src:[playlist[index]],
     volume: 0.1
 })
     sound.play()
-    console.log(songInfo[index])
     displaySong(songInfo[index])
     displayGif()
+    getFacts()
 }
 //-----------------------------------------------------
-function playSong() {   
+function playSong() {   // plays the song when the "play" button is pushed
     if (sound.playing() == false)
         sound.play()
-        // console.log('play song') 
 }
 //-----------------------------------------------------
-function pauseSong() {
+function pauseSong() { // pauses the song when "pause" button is pushed
     sound.pause()
-    // console.log('pause song')
 }
 //-----------------------------------------------------
-function nextSong() {   
+function nextSong() {   // plays the next song when "next" button is pushed
     if (nexIndex < playlist.length) {
     sound.stop()
-    // console.log('next song')
     curIndex = nexIndex
     startPlaylist(nexIndex)
     nexIndex = curIndex + 1
     preIndex = curIndex - 1
-    }
+}
+else if (nexIndex==playlist.length){ 
+    console.log('inside else if')
+    sound.stop()
+    curIndex = 0
+    startPlaylist(curIndex)
+    nexIndex = curIndex + 1
+    preIndex = curIndex - 1
+}
 }
 //-----------------------------------------------------
-function prevSong() {  
+function prevSong() {  // plays previous song when "previous" button is pushed
     if (preIndex > -1) {
     sound.stop()
-    // console.log('previous song')
     curIndex = preIndex
     startPlaylist(preIndex)
     nexIndex = curIndex + 1
@@ -89,7 +89,7 @@ function prevSong() {
 }
 
 //-----------------------------------------------------
-const displaySong = (song) => {
+const displaySong = (song) => { // displays the current song in the playlist box
     document.getElementById('nowPlaying').innerText = 'Now Playing: ' + song.title + ' | ' + song.album + '\nBy: ' + song.artist
 }
 //-----------------------------------------------------
@@ -100,7 +100,7 @@ function songDone() { // checks to see if the song is done to play next song,  m
     preIndex = curIndex - 1
 }
 //-----------------------------------------------------
-function shuffle() {
+function shuffle() { //shuffles the list of songs called from our API
   let i = playlist.length
   let ri;
   while (i != 0) {
@@ -111,41 +111,34 @@ function shuffle() {
     [songInfo[i], songInfo[ri]] =  [songInfo[ri], songInfo[i]];
     [gifsList[i], gifsList[ri]] =  [gifsList[ri], gifsList[i]];
   }
-//   gifs.splice(0,totalLength)
-//   console.log(gifs)
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-const getGif = () => {
+const getGif = () => { // was supposed to grab the gif from the giphy API
     fetch('http://127.0.0.1:8080/api.giphy.com/v1/gifs/random?api_key=H2vfGVbOk13pYN8yuRDLCdtRJwCsIEGc&tag=dog')
     .then(response => {
         return response.json()
     })
     .then(dogGif => {
         randomGif = dogGif.data.embed_url
-        // console.log(randomGif)
-        // gifs.push(randomGif)
     })
     }
 //-----------------------------------------------------
-function displayGif() {
-    //console.log(gifsList[0])
+function displayGif() { // places the gif within the HTML element
     document.getElementById('gifSpot').src = gifsList[curIndex]
-    //console.log(document.getElementById('gifSpot'))
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-function getFacts() {
-    fetch(' http://dog-api.kinduff.com/api/facts?number='+totalLength)
+function getFacts() { // grabs random dog fact API and calls the display function defined below
+    fetch(' http://dog-api.kinduff.com/api/facts')
     .then(response => {
         return response.json()
     })
     .then(factO => {
-        for(let i = 0; i > totalLength; i++) {
-            dogFacts.push(factO.fact[i])
-        }
+        dogFact = factO.facts[0]
+        displayFact()
     })
 }
 //-----------------------------------------------------
-function displayFact() {
-    document.getElementById('').innerText = dogFacts[curIndex]
+function displayFact() { // creates the function which places the random dog fact inside the HTML element
+    document.getElementById('dogFact').innerText = dogFact
 }
