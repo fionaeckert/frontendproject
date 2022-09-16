@@ -13,7 +13,7 @@ nexIndex = curIndex + 1
 totalLength = 20
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
-    fetch('https://tiny-platypus-800754.netlify.app/api.deezer.com/search?q=dog')
+    fetch('https://api.deezer.com/search?q=dog')
     .then(response => {
         return response.json()
     })
