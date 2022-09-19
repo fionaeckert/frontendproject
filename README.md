@@ -24,7 +24,7 @@ Doggy Dj is a fun and handy dog themed music player and dog fact hotspot. Perfec
 
 Here's the team and our project! Look at that pug go.
 <img src="./team.png">
-Top of the screen using the
+Top of the screen
 <img src="./top_screen.png">
 Media player.
 <img src="./media_player.png">
