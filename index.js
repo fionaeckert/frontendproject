@@ -13,7 +13,7 @@ nexIndex = curIndex + 1
 totalLength = 20
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
-    fetch('http://127.0.0.1:8080/api.deezer.com/search?q=dog')
+    fetch('https://api.deezer.com/search?q=dog')
     .then(response => {
         return response.json()
     })
@@ -114,15 +114,15 @@ function shuffle() { //shuffles the list of songs called from our API
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------
-const getGif = () => { // was supposed to grab the gif from the giphy API
-    fetch('http://127.0.0.1:8080/api.giphy.com/v1/gifs/random?api_key=H2vfGVbOk13pYN8yuRDLCdtRJwCsIEGc&tag=dog')
-    .then(response => {
-        return response.json()
-    })
-    .then(dogGif => {
-        randomGif = dogGif.data.embed_url
-    })
-    }
+// const getGif = () => { // was supposed to grab the gif from the giphy API
+//     fetch('http://127.0.0.1:8080/api.giphy.com/v1/gifs/random?api_key=H2vfGVbOk13pYN8yuRDLCdtRJwCsIEGc&tag=dog')
+//     .then(response => {
+//         return response.json()
+//     })
+//     .then(dogGif => {
+//         randomGif = dogGif.data.embed_url
+//     })
+//     }
 //-----------------------------------------------------
 function displayGif() { // places the gif within the HTML element
     document.getElementById('gifSpot').src = gifsList[curIndex]
