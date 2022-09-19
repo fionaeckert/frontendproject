@@ -24,12 +24,10 @@ Doggy Dj is a fun and handy dog themed music player and dog fact hotspot. Perfec
 
 Here's the team and our project! Look at that pug go.
 <img src="./team.png">
-Top of the screen
-<img src="./top_screen.png">
-Media player.
-<img src="./media_player.png">
+Here's a closeup.
+<img src="./media_player_quotes.png">
 Full screen from the user's point of view.
-<img src="full_screen.png">
+<img src="./full_screen.png">
 
 ## Developer Team
 
@@ -40,3 +38,7 @@ Full screen from the user's point of view.
 [1]: https://github.com/fionaeckert
 [2]: https://github.com/Jon-115
 [3]: https://github.com/jordanboardman
+
+## Note:
+
+**_Currently, as of September 2022, the Doggy DJ site requires the user to run the site with a CORS server. This is actively being worked on by the dev team and we will have a patch released here shortly._**
