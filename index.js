@@ -1,3 +1,5 @@
+// const {Howl, Howler} = require('howler');
+// import {Howl} from './node_modules/howler/src/howler.core';
 gifsList = ['https://giphy.com/embed/rdAeOA3mfXomQ','https://giphy.com/embed/vhkPj5VZYuKKQ','https://giphy.com/embed/LWzdNsCaw2t2wdj0wp',
 'https://giphy.com/embed/XY2K8EQ83uN3sLzeYT','https://giphy.com/embed/DirPxXrUHKaCA','https://giphy.com/embed/4Zo41lhzKt6iZ8xff9','https://giphy.com/embed/3lxD1O74siiz5FvrJs'
 ,'https://giphy.com/embed/xUOxfbuK9qc61NGiaI','https://giphy.com/embed/1kkxWqT5nvLXupUTwK','https://giphy.com/embed/l2uluGTvB7DAQvZyHp','https://giphy.com/embed/VpysUTI25mTlK','https://giphy.com/embed/sy843WuhjhB5K',
@@ -11,8 +13,7 @@ curIndex = 0
 preIndex = curIndex - 1 
 nexIndex = curIndex + 1
 totalLength = 20
-// const {Howl, Howler} = require('howler');
-// import {Howl, Howler} from 'howler';
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
     fetch('https://djdogserver2.herokuapp.com/api.deezer.com/search?q=dog')
