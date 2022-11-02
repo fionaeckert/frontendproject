@@ -11,6 +11,8 @@ curIndex = 0
 preIndex = curIndex - 1 
 nexIndex = curIndex + 1
 totalLength = 20
+const {Howl, Howler} = require('howler');
+// import {Howl, Howler} from 'howler';
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
     fetch('https://djdogserver2.herokuapp.com/api.deezer.com/search?q=dog')
@@ -124,7 +126,7 @@ function getFacts() { // grabs random dog fact API and calls the display functio
     .then(response => {
         return response.json()
     })
-    .then(factO => {
+    .then(factO => {    
         dogFact = factO.facts[0]
         displayFact()
     })
