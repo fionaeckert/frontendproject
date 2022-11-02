@@ -11,7 +11,7 @@ curIndex = 0
 preIndex = curIndex - 1 
 nexIndex = curIndex + 1
 totalLength = 20
-const {Howl, Howler} = require('howler');
+// const {Howl, Howler} = require('howler');
 // import {Howl, Howler} from 'howler';
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 const getSongs = () => {        // Creates an array of songs from the deezer api
