@@ -110,8 +110,8 @@
     totalLength = 20
     
     //-----------------------------------------------------------------------------------------------------------------------------------------------
-    const getSongs = () => {        // Creates an array of songs from the deezer api
-        fetch('https://djdogserver2.herokuapp.com/api.deezer.com/search?q=dog')
+    const getSongs = async() => {        // Creates an array of songs from the deezer api
+        await fetch('https://djdogserver2.herokuapp.com/api.deezer.com/search?q=dog')
         .then(response => {
             return response.json()
         })
