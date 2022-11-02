@@ -86,10 +86,10 @@
 
   </div>
 
+  <script src="./node_modules/howler/src/howler.core.js">
 
-  <script></script>
-  <script src="./node_modules/howler/src/howler.core.js"></script>
-  <script>
+    // const {Howl, Howler} = require('howler');
+    import {Howl, Howler} from 'howler';
 
     var sound = new Howl({
       src: ['sound.webm', 'sound.mp3']
@@ -108,8 +108,7 @@
     preIndex = curIndex - 1 
     nexIndex = curIndex + 1
     totalLength = 20
-    // const {Howl, Howler} = require('howler');
-    // import {Howl, Howler} from 'howler';
+    
     //-----------------------------------------------------------------------------------------------------------------------------------------------
     const getSongs = () => {        // Creates an array of songs from the deezer api
         fetch('https://djdogserver2.herokuapp.com/api.deezer.com/search?q=dog')
